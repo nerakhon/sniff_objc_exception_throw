@@ -9,7 +9,7 @@ def GetFirstArgumentAsValue(target, frame):
         address = espValue.GetValueAsUnsigned() + target.addr_size
         return espValue.CreateValueFromAddress('arg0', address, target.FindFirstType('id'))
     elif target.triple.startswith('arm64'):
-	return frame.regs[0].GetChildMemberWithName("x0")
+        return frame.regs[0].GetChildMemberWithName("x0")
     else:
         return frame.regs[0].GetChildMemberWithName("r0")
 
